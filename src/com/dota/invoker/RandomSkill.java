@@ -10,17 +10,17 @@ import java.util.ArrayList;
  * @author atifk
  */
 public class RandomSkill {
-    private static final String EMP = "EMP";
-    private static final String TORNADO = "Tornado";
-    private static final String ALACRITY = "Alacrity";
-    private static final String GHOST_WALK = "GhostWalk";
-    private static final String DEAFENING_BLAST = "DeafeningBlast";
-    private static final String CHAOS_METEOR = "ChaosMeteor";
-    private static final String COLD_SNAP = "ColdSnap";
-    private static final String ICE_WALL = "IceWall";
-    private static final String FORGE_SPIRIT = "ForgeSpirit";
-    private static final String SUN_STRIKE = "SunStrike";
-    private static List<Integer> skillNumber;
+    public static final String EMP = "EMP";
+    public static final String TORNADO = "Tornado";
+    public static final String ALACRITY = "Alacrity";
+    public static final String GHOST_WALK = "Ghost_Walk";
+    public static final String DEAFENING_BLAST = "Deafening_Blast";
+    public static final String CHAOS_METEOR = "Chaos_Meteor";
+    public static final String COLD_SNAP = "Cold_Snap";
+    public static final String ICE_WALL = "Ice_Wall";
+    public static final String FORGE_SPIRIT = "Forge_Spirit";
+    public static final String SUN_STRIKE = "Sun_Strike";
+    public static List<Integer> skillNumber;
     
     public RandomSkill() {
         skillNumber = new ArrayList();

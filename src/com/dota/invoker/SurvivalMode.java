@@ -5,18 +5,31 @@
  */
 package com.dota.invoker;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+
 /**
  *
  * @author atifk
  */
 public class SurvivalMode extends javax.swing.JFrame {
-
+    
+    private short counter;
+    private short quasCounter;
+    private short wexCounter;
+    private short exortCounter;
+    
     /**
      * Creates new form InvokerTrainerGUI
      */
     public SurvivalMode() {
         setFrameLocation();
         initComponents();
+        displaySkill();
+        setDefaultBorder();
     }
 
     /**
@@ -33,12 +46,20 @@ public class SurvivalMode extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        firstInvoke = new javax.swing.JLabel();
+        secondInvoke = new javax.swing.JLabel();
+        thirdInvoke = new javax.swing.JLabel();
+        spell = new javax.swing.JLabel();
+        spellNameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Survival Mode");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(33, 33, 33));
 
@@ -46,7 +67,7 @@ public class SurvivalMode extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Survival Mode");
-        jLabel1.setToolTipText("Invoke the spell displayed withing the time limit.");
+        jLabel1.setToolTipText("Invoke the spell displayed within the time limit.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -59,8 +80,10 @@ public class SurvivalMode extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
 
         jPanel2.setBackground(new java.awt.Color(33, 33, 33));
 
@@ -68,66 +91,141 @@ public class SurvivalMode extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 639, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
+            .addGap(0, 90, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 353, 639, 90));
 
         jPanel3.setBackground(new java.awt.Color(66, 66, 66));
 
-        jLabel2.setText("jLabel2");
+        firstInvoke.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel3.setText("jLabel2");
+        secondInvoke.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel4.setText("jLabel2");
+        thirdInvoke.setForeground(new java.awt.Color(255, 0, 0));
+
+        spell.setBackground(new java.awt.Color(204, 204, 0));
+        spell.setForeground(new java.awt.Color(255, 0, 0));
+        spell.setBorder(new javax.swing.border.MatteBorder(null));
+
+        spellNameLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        spellNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(211, 211, 211))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(spellNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                            .addGap(205, 205, 205)
+                            .addComponent(firstInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(secondInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(thirdInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addComponent(spell, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(spell, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spellNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(secondInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(thirdInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstInvoke, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 64, 639, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        MainSpells spell = new MainSpells();
+        String tempSpell = "";
+        
+        if (evt.getKeyCode() == KeyEvent.VK_Q) {
+            tempSpell = spell.getSpell('Q');
+            this.quasCounter++;
+            setCounter();
+            setPanelImage(tempSpell);
+        }
+        else if (evt.getKeyCode() == KeyEvent.VK_W) {
+            tempSpell = spell.getSpell('W');
+            this.wexCounter++;
+            setCounter();
+            setPanelImage(tempSpell);
+        }
+        else if (evt.getKeyCode() == KeyEvent.VK_E) {
+            tempSpell = spell.getSpell('E');
+            this.exortCounter++;
+            setCounter();
+            setPanelImage(tempSpell);
+        }
+        else if (evt.getKeyCode() == KeyEvent.VK_R) {
+            AnswerCheck check = new AnswerCheck();
+        }
+    }//GEN-LAST:event_formKeyPressed
+    
+    private void setCounter() {
+        if (this.counter < 3)
+            this.counter++;
+        else
+            setDefaultBorder();
+    }
+    
+    private void setPanelImage(String tempSpell) {
+        String spellLocation;
+        
+        if (this.counter == 1) {
+            spellLocation = "/com/dota/invoker/spell_icons/" 
+                + tempSpell + ".png";
+            firstInvoke.setIcon(new javax.swing.ImageIcon(getClass().getResource(spellLocation)));
+        } else if (this.counter == 2) {
+            spellLocation = "/com/dota/invoker/spell_icons/" 
+                + tempSpell + ".png";
+            secondInvoke.setIcon(new javax.swing.ImageIcon(getClass().getResource(spellLocation)));
+        } else if (this.counter == 3) {
+            spellLocation = "/com/dota/invoker/spell_icons/" 
+                + tempSpell + ".png";
+            thirdInvoke.setIcon(new javax.swing.ImageIcon(getClass().getResource(spellLocation)));
+        }
+    }
+    
+    private void setDefaultBorder() {
+        this.counter = 0;
+        quasCounter = 0;
+        wexCounter = 0;
+        exortCounter = 0;
+        
+        Border border = BorderFactory.createLineBorder(Color.BLACK);
+        firstInvoke.setIcon(null);
+        secondInvoke.setIcon(null);
+        thirdInvoke.setIcon(null);
+        
+        firstInvoke.setBorder(border);
+        secondInvoke.setBorder(border);
+        thirdInvoke.setBorder(border);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -168,15 +266,43 @@ public class SurvivalMode extends javax.swing.JFrame {
         InvokerTrainerGUI it = new InvokerTrainerGUI();
         setLocation(it.getLocation());
     }
+    
+    private void displaySkill() {
+        
+        try {
+            RandomSkill random = new RandomSkill();
+            String temp = random.getRandomSkill(true);
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for (int i = 0; i < temp.length(); i++) {
+                if (temp.charAt(i) != '_')
+                    sb.append(temp.charAt(i));
+                else
+                    sb.append(' ');
+            }
+            
+            spellNameLabel.setText(sb.toString());
+            
+            String s = "/com/dota/invoker/spell_icons/" 
+                    + temp + ".png";
+            spell.setIcon(new javax.swing.ImageIcon(getClass().getResource(s)));
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel firstInvoke;
     private javax.swing.ButtonGroup gameModes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel secondInvoke;
+    private javax.swing.JLabel spell;
+    private javax.swing.JLabel spellNameLabel;
+    private javax.swing.JLabel thirdInvoke;
     // End of variables declaration//GEN-END:variables
 }
