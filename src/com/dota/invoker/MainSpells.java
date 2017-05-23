@@ -6,7 +6,7 @@ public class MainSpells {
     private static final String WEX = "Wex";
     private static final String EXORT = "Exort";
     
-    public String getSpell(char spell) {
+    public static String getSpell(char spell) {
         switch (spell) {
             case 'Q': 
                 return QUAS;

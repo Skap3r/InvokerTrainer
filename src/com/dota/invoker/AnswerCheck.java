@@ -2,13 +2,18 @@
 package com.dota.invoker;
 
 public class AnswerCheck {
-    public boolean validate(String spell, short quas, short wex, short exort) {
+    public static boolean validate(String spell, short quas, short wex, short exort) {
+        
+        System.out.println("Skill name: " +spell);
+        System.out.println("quas count: " +quas);
+        System.out.println("wex count: " +wex);
+        System.out.println("exort count: " +exort);
         if (spell.equals(RandomSkill.EMP)) {
             if (quas == 0 && wex == 3 && exort == 0)
                 return true;
         }
         if (spell.equals(RandomSkill.TORNADO)) {
-            if (quas == 2 && wex == 1 && exort == 0)
+            if (quas == 1 && wex == 2 && exort == 0)
                 return true;
         }
         if (spell.equals(RandomSkill.ALACRITY)) {
@@ -24,7 +29,7 @@ public class AnswerCheck {
                 return true;
         }
         if (spell.equals(RandomSkill.CHAOS_METEOR)) {
-            if (quas == 0 && wex == 1 && exort ==20)
+            if (quas == 0 && wex == 1 && exort == 2)
                 return true;
         }
         if (spell.equals(RandomSkill.COLD_SNAP)) {

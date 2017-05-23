@@ -70,7 +70,7 @@ public class InvokerTrainerGUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 70));
@@ -81,7 +81,7 @@ public class InvokerTrainerGUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 639, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,17 +100,19 @@ public class InvokerTrainerGUI extends javax.swing.JFrame {
         survivalMode.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         survivalMode.setText("Survival Mode");
         survivalMode.setToolTipText("Invoke the spell displayed within the time limit.");
+        survivalMode.setEnabled(false);
 
         speedyInvoke.setBackground(new java.awt.Color(66, 66, 66));
         gameModes.add(speedyInvoke);
         speedyInvoke.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         speedyInvoke.setText("Speedy Invoke");
         speedyInvoke.setToolTipText("Invoke all invoker spells as fast as possible.");
+        speedyInvoke.setEnabled(false);
 
         classic.setBackground(new java.awt.Color(66, 66, 66));
         gameModes.add(classic);
         classic.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        classic.setText("Classic");
+        classic.setText("Endless Classic");
         classic.setToolTipText("Keep playing endlessly.");
 
         start.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
@@ -195,7 +197,7 @@ public class InvokerTrainerGUI extends javax.swing.JFrame {
                 si.setVisible(true);
             }
             else if(classic.isSelected()) {
-                Classic c = new Classic();
+                EndlessClassic c = new EndlessClassic();
                 c.setVisible(true);
             }
         }
